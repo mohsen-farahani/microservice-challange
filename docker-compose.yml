@@ -1,0 +1,59 @@
+version: "3.3"
+
+services:
+  nginx:
+    image: nginx:latest
+    tty: true
+    ports:
+      - 8200:80
+    volumes:
+      - ./apps/wallet/:/var/www/wallet
+      - ./apps/discount/:/var/www/discount
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/apps/:/etc/nginx/conf.d/
+    restart: always
+
+  wallet:
+    build:
+      context: apps/wallet
+      dockerfile: Dockerfile
+    environment:
+      SERVICE_NAME: wallet
+      SERVICE_TAGS: dev
+    working_dir: /var/www/wallet
+    volumes:
+      - ./apps/wallet/:/var/www/wallet
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - "rabbitmq"
+    tty: true
+    restart: unless-stopped
+    # command: composer install --ignore-platform-reqs
+
+  discount:
+    build:
+      context: apps/discount
+      dockerfile: Dockerfile
+    environment:
+      SERVICE_NAME: discount
+      SERVICE_TAGS: dev
+    working_dir: /var/www/discount
+    volumes:
+      - ./apps/discount/:/var/www/discount
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - "rabbitmq"
+    tty: true
+    restart: unless-stopped
+    # command: composer install --ignore-platform-reqs
+
+  rabbitmq:
+    image: rabbitmq:3.8.3-management-alpine
+    restart: always
+    expose:
+      - "4369"
+      - "5671"
+      - "5672"
+      - "25672"
+    ports:
+      - 15672:15672
