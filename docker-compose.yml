@@ -3,9 +3,10 @@ version: "3.3"
 services:
   nginx:
     image: nginx:latest
+    container_name: nginx
     tty: true
     ports:
-      - 8200:80
+      - 80:80
     volumes:
       - ./apps/wallet/:/var/www/wallet
       - ./apps/discount/:/var/www/discount
@@ -17,6 +18,7 @@ services:
     build:
       context: apps/wallet
       dockerfile: Dockerfile
+    container_name: wallet_microservice
     environment:
       SERVICE_NAME: wallet
       SERVICE_TAGS: dev
@@ -28,12 +30,12 @@ services:
       - "rabbitmq"
     tty: true
     restart: unless-stopped
-    # command: composer install --ignore-platform-reqs
 
   discount:
     build:
       context: apps/discount
       dockerfile: Dockerfile
+    container_name: discount_microservice
     environment:
       SERVICE_NAME: discount
       SERVICE_TAGS: dev
@@ -45,11 +47,11 @@ services:
       - "rabbitmq"
     tty: true
     restart: unless-stopped
-    # command: composer install --ignore-platform-reqs
 
   rabbitmq:
     image: rabbitmq:3.8.3-management-alpine
     restart: always
+    container_name: rabbitmq
     expose:
       - "4369"
       - "5671"
