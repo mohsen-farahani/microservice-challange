@@ -59,3 +59,12 @@ services:
       - "25672"
     ports:
       - 15672:15672
+
+  gateway-api:
+    container_name: gateway-api
+    build:
+      context: apps/gateway-api
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
