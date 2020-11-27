@@ -14,7 +14,8 @@ Discount service The task of managing discount codes
 We want to make the user add to his wallet by entering the charge code and be able to view his wallet
 People who have received a recharge code should also be available
 </p>
------------------------
+
+
 <h2>How did I solve this problem?</h2>
 <p>
 I used Rest API to communicate at the same time and got help from message broker(RabbitMQ) where communication between microservices was needed.
@@ -29,10 +30,14 @@ You can see my outline in the image below
 
 Patterns for distributed transactions within a microservices architecture
 </p>
------------------------
+
+
 <img src="Screenshot from 2020-11-27 13-19-14.png">
------------------------
+
+
 ### Installation:
+
+
 ``` bash
 git clone https://github.com/mohsen-farahani/microservice-challange.git
 ```
