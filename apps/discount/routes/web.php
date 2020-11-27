@@ -19,3 +19,4 @@ $router->get('/', function () use ($router) {
 
 $router->post('campaigns/', 'CampaignsController@store');
 $router->post('campaigns/demand', 'CampaignsController@demand');
+$router->get('users-campaigns', 'UsersCampaignsController@getUsers');

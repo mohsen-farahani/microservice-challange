@@ -26,4 +26,5 @@ class UsersCampaign extends Model
     {
         return $this->belongsTo(Campaign::class);
     }
+
 }

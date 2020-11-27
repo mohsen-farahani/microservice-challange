@@ -13,5 +13,11 @@ router.post('/campaigns/demand', (req, res) => {
     })
 })
 
+router.get('/users-campaigns', (req, res) => {
+    api.get(req.path).then(resp => {
+        res.send(resp.data)
+    })
+})
+
 
 module.exports = router
