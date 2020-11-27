@@ -23,7 +23,7 @@ I used Rest API to communicate at the same time and got help from message broker
 But the way this connection was established had to be modeled on a distributed transaction
 Here I had two ways to do this process:
 
-pm2 or saga pattern
+2pc or saga pattern
 
 I preferred the saga method
 You can see my outline in the image below
