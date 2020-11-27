@@ -7,7 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class WalletIncrease extends AbstractWallet implements InterfaceWallet
 {
-    public function prosess()
+    /**
+     * prosess
+     *
+     * @return void
+     */
+    public function prosess(): void
     {
 
         DB::beginTransaction();
@@ -22,7 +27,12 @@ class WalletIncrease extends AbstractWallet implements InterfaceWallet
         }
     }
 
-    private function createFinanacialTransaction()
+    /**
+     * createFinanacialTransaction
+     *
+     * @return void
+     */
+    private function createFinanacialTransaction(): void
     {
         FinancialTransaction::create([
             'user_id'        => $this->user->id,

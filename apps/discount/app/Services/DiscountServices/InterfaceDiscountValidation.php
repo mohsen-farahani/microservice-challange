@@ -4,5 +4,11 @@ namespace App\Services\DiscountServices;
 
 interface InterfaceDiscountValidation
 {
-    public function validate(array $data);
+    /**
+     * validate
+     *
+     * @param  mixed $data
+     * @return array
+     */
+    public function validate(array $data): array;
 }

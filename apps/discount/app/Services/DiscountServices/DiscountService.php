@@ -8,7 +8,14 @@ use App\Services\DiscountServices\ContextTransaction\WalletTranscation;
 
 class DiscountService
 {
-    public function begainTransaction(Campaign $campaign, string $mobile)
+    /**
+     * begainTransaction
+     *
+     * @param  mixed $campaign
+     * @param  mixed $mobile
+     * @return void
+     */
+    public function begainTransaction(Campaign $campaign, string $mobile): void
     {
         switch ($campaign->campaign_type) {
             case Campaign::CAMPAIGN_TYPE_WALLET:
@@ -19,7 +26,14 @@ class DiscountService
         $context->prosess($campaign, $mobile);
     }
 
-    public function rollbackTransaction(string $mobile, int $campaignID)
+    /**
+     * rollbackTransaction
+     *
+     * @param  mixed $mobile
+     * @param  mixed $campaignID
+     * @return void
+     */
+    public function rollbackTransaction(string $mobile, int $campaignID): void
     {
         UsersCampaign::where('mobile', $mobile)
             ->where('campaign_id', $campaignID)

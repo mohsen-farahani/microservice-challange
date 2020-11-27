@@ -15,7 +15,12 @@ abstract class AbstractWorkers
         $this->prepare();
     }
 
-    private function prepare()
+    /**
+     * prepare
+     *
+     * @return void
+     */
+    private function prepare(): void
     {
         $rabb = (new RabbitMQService);
 
@@ -29,14 +34,19 @@ abstract class AbstractWorkers
         $rabb->worker($this->getChannleName(), $callback);
     }
 
-    abstract public function handle();
+    /**
+     * handle
+     *
+     * @return void
+     */
+    abstract public function handle(): void;
 
     /**
      * getChannleName
      *
-     * @return self
+     * @return string
      */
-    private function getChannleName()
+    private function getChannleName(): string
     {
         $childeClass = get_called_class();
         $className   = Str::afterLast($childeClass, '\\');

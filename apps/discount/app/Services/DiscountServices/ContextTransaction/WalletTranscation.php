@@ -8,7 +8,14 @@ use App\Publishers\WalletIncrease;
 
 class WalletTranscation implements InterfaceTransaction
 {
-    public function prosess(Campaign $campaign, string $mobile)
+    /**
+     * prosess
+     *
+     * @param  mixed $campaign
+     * @param  mixed $mobile
+     * @return void
+     */
+    public function prosess(Campaign $campaign, string $mobile): void
     {
         UsersCampaign::create([
             'campaign_id' => $campaign->id,

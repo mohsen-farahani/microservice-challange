@@ -14,7 +14,7 @@
  */
 
 $router->get('/', function () use ($router) {
-    return "wallet: " . $router->app->version();
+    return "wallet microservice" ;
 });
 
 $router->get('wallets/{mobile}', 'WalletsController@getAmount');

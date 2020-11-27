@@ -19,10 +19,16 @@ class RabbitMQService
             env('RABBITMQ_PASSWORD')
         );
         $this->channel = $this->connection->channel();
-
-        return $this;
     }
-    public function publish($message, $channelName)
+
+    /**
+     * publish
+     *
+     * @param  mixed $message
+     * @param  mixed $channelName
+     * @return void
+     */
+    public function publish(string $message, string $channelName): void
     {
         $this->channel->queue_declare($channelName, false, false, false, false);
 
@@ -34,7 +40,14 @@ class RabbitMQService
         $this->connection->close();
     }
 
-    public function worker($channelName, $callback)
+    /**
+     * worker
+     *
+     * @param  mixed $channelName
+     * @param  mixed $callback
+     * @return void
+     */
+    public function worker(string $channelName, callable $callback): void
     {
         $this->channel->queue_declare($channelName, false, false, false, false);
 

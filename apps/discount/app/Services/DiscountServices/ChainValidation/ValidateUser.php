@@ -7,6 +7,12 @@ use App\Models\UsersCampaign;
 class ValidateUser extends HandlerChain
 {
 
+    /**
+     * process
+     *
+     * @param  mixed $data
+     * @return array
+     */
     public function process(array $data): array
     {
         $campaign      = $data['campaign']->first();

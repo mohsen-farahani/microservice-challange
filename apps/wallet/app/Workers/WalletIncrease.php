@@ -8,7 +8,12 @@ use App\Services\WalletService\WalletIncrease as WalletIncreaseService;
 
 class WalletIncrease extends AbstractWorkers
 {
-    public function handle()
+    /**
+     * handle
+     *
+     * @return void
+     */
+    public function handle(): void
     {
         try {
             $data = json_decode($this->body, true);

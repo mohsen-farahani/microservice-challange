@@ -19,10 +19,9 @@ class RabbitMQService
             env('RABBITMQ_PASSWORD')
         );
         $this->channel = $this->connection->channel();
-
-        return $this;
     }
-    public function publish($message, $channelName)
+
+    public function publish(string $message, string $channelName)
     {
         $this->channel->queue_declare($channelName, false, false, false, false);
 

@@ -4,5 +4,10 @@ namespace App\Services\WalletService;
 
 interface InterfaceWallet
 {
-    public function prosess();
+    /**
+     * prosess
+     *
+     * @return void
+     */
+    public function prosess(): void;
 }

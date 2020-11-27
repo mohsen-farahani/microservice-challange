@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 
 class WalletsController extends Controller
 {
-    public function getAmount(string $mobile)
+    /**
+     * getAmount
+     *
+     * @param  mixed $mobile
+     * @return JsonResponse
+     */
+    public function getAmount(string $mobile): JsonResponse
     {
         $user = User::where('mobile', $mobile)->first();
         if (!$user) {

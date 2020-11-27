@@ -4,5 +4,10 @@ namespace App\Publishers;
 
 interface InterfacePublisher
 {
-    public function handle();
+    /**
+     * handle
+     *
+     * @return void
+     */
+    public function handle(): void;
 }

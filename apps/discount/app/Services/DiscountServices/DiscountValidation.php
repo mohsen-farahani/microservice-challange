@@ -8,7 +8,13 @@ use App\Services\DiscountServices\ChainValidation\ValidateUser;
 
 class DiscountValidation implements InterfaceDiscountValidation
 {
-    public function validate(array $data)
+    /**
+     * validate
+     *
+     * @param  mixed $data
+     * @return array
+     */
+    public function validate(array $data): array
     {
         $validateCampaign = new ValidateCampaign;
         $checkMaxUser     = new CheckMaxUser;
