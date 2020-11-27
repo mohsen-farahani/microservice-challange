@@ -46,26 +46,6 @@ git clone https://github.com/mohsen-farahani/microservice-challange.git
 docker-compose up -d
 ```
 
-```
-cd apps/gateway-api
-```
-
-```
-install nodejs & npm
-```
-
-```
-npm install
-```
-
-```
-node index.js
-```
-
-```
-localhost:3000
-```
-
 
 - <a href="apps/wallet/README.md">click for install wallet microservice</a>
 - <a href="apps/discount/README.md">click for install discount microservice</a>
