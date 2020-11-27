@@ -1,5 +1,5 @@
 <h1 align="center">Microservice Challange</h1>
-<h2>Whats question ?</h2>
+<h2>What's Problem ?</h2>
 <p>
 We have two separate services
 
@@ -9,10 +9,9 @@ The Wallet Microservice is responsible for maintaining the user's financial info
 
 and
 
-Discount service The task of managing discount codes
+Discount service The task of managing discount codes.
 
-We want to make the user add to his wallet by entering the charge code and be able to view his wallet
-People who have received a recharge code should also be available
+We want user be able to entering the code and charge his/her wallet.
 </p>
 
 
@@ -25,7 +24,8 @@ Here I had two ways to do this process:
 
 2pc or saga pattern
 
-I preferred the saga method
+I preferred the saga method.
+
 You can see my outline in the image below
 
 Patterns for distributed transactions within a microservices architecture
